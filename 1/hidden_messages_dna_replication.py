@@ -22,6 +22,23 @@ def frequet_words(text, k):
             frequent_patterns.add(text[i:i+k])
     return frequent_patterns
 
+def reverse(text):
+    """
+    >>> reverse('AAAACCCGGT')
+    'ACCGGGTTTT'
+    """
+    nucleotide_map = {
+        'A': 'T',
+        'T': 'A',
+        'C': 'G',
+        'G': 'C'
+    }
+    result = ''
+    for nuclease in reversed(text):
+        result = result + nucleotide_map[nuclease]
+    return result
+
+
 
 
 if __name__ == '__main__':
