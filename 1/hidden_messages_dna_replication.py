@@ -1,3 +1,5 @@
+import re
+
 def pattern_count(text, pattern):
     """
     >>> pattern_count("CGATATATCCATAG", "ATA")
@@ -39,6 +41,19 @@ def reverse(text):
     return result
 
 
+def find_pattern_indexes(text, pattern):
+    """
+    >>> find_pattern_indexes('GATATATGCATATACTT', 'ATAT')
+    [1, 3, 9]
+    """
+    pattern_len = len(pattern)
+    results = []
+    for i in range(len(text) - pattern_len):
+
+        window = text[i: i + pattern_len]
+        if window == pattern:
+            results.append(i)
+    return results
 
 
 if __name__ == '__main__':
